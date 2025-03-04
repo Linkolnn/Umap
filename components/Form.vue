@@ -78,6 +78,7 @@ onMounted(() => {
 
 @include mobile
   .form
-    width: 350px
+    max-width: 350px
+    width: 100%
 
 </style>
