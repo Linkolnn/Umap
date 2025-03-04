@@ -21,6 +21,15 @@ export default defineNuxtConfig({
           src: 'https://api-maps.yandex.ru/2.1/?apikey=8c153f10-4f81-4adc-bf29-7321c5d48ce3&lang=ru_RU',
           async: true,
         }
+      ],
+      title: 'Umap',
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico',
+          sizes: 'any'
+        },
       ]
     }
   },

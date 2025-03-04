@@ -16,7 +16,7 @@
 
 .footer
     display: flex
-    flex-direction: column
+    flex-direction: row
     justify-content: space-between
     gap: 10px
     padding: 20px
@@ -28,5 +28,9 @@
     width: 25px
     height: 25px
     transform: translateX(10%)
+
+@include mobile
+    .footer
+        flex-direction: column
 
 </style>
