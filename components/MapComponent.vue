@@ -395,7 +395,7 @@ watch(showForm, (newVal) => {
 
 @include mobile
   #map
-    height: 70vh
+    height: 80vh
 
   .form-container
     max-height: 70vh
