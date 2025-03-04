@@ -1,0 +1,121 @@
+@import "../assets/mixin"
+.font-h1
+  @include font-styles(68px, 900, 120%)
+
+.font-h2
+  @include font-styles(44px, 700, 120%)
+
+.font-h3
+  @include font-styles(30px, 700, 140%)
+
+.font-h4
+  @include font-styles(24px, 700, 130%)
+  font-family: 'Source-Sans-3' , sans-serif
+
+.font-subtitle
+  @include font-styles(58px, 300, 120%)
+  font-family: 'Source-Sans-3' , sans-serif
+
+.font-span_center
+  @include font-styles(68px, 400, 120%)
+  font-family: 'Source-Sans-3' , sans-serif
+  text-transform: uppercase
+
+.font-span_title-card
+  @include font-styles(34px, 700, 120%)
+  text-transform: uppercase
+
+.font-text_extra-large
+  @include font-styles(24px, 400, 140%)
+  font-family: 'Source-Sans-3' , sans-serif
+.font-text_large
+  @include font-styles(20px, 400, 140%)
+  font-family: 'Source-Sans-3' , sans-serif
+
+.font-text_medium
+  @include font-styles(18px, 400, 120%)
+  font-family: 'Source-Sans-3' , sans-serif
+
+.font-text_small
+  @include font-styles(16px, 400, 120%)
+  font-family: 'Source-Sans-3' , sans-serif
+
+.font-text_accent
+  @include font-styles(16px, 700, 150%)
+
+.font-text_caps
+  @include font-styles(16px, 500, 120%)
+  font-family: 'Source-Sans-3' , sans-serif
+  text-transform: uppercase
+
+.font-button
+  @include font-styles(16px, 400, 120%)
+
+.font-button-back
+  @include font-styles(18px, 500, 120%)
+
+.font-text_search
+  @include font-styles(18px, 700, 120%)
+
+@include tablet
+  .font-h1
+    font-size: 48px
+
+  .font-h2
+    font-size: 34px
+
+  .font-h3
+    font-size: 24px
+
+  .font-h4
+    font-size: 22px
+
+  .font-subtitle
+    font-size: 36px
+
+  .font-span_center
+    font-size: 48px
+
+  .font-span_title-card
+    font-size: 34px
+
+  .font-text_extra-large
+    font-size: 22px
+
+  .font-text_large
+    font-size: 18px
+
+  .font-text_medium
+    font-size: 16px
+
+  .font-text_small
+    font-size: 16px
+
+@include mobile
+  .font-h1
+    font-size: 30px
+
+  .font-h2
+    font-size: 28px
+
+  .font-h3
+    font-size: 24px
+    line-height: 120%
+
+  .font-h4
+    font-size: 20px
+
+  .font-subtitle
+    font-size: 22px
+
+  .font-span_center
+    font-size: 24px
+
+  .font-span_title-card
+    font-size: 20px
+
+  .font-text_medium
+    font-size: 16px
+  
+  .font-button
+    font-size: 16px
