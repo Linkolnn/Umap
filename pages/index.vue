@@ -5,11 +5,13 @@ import { animateBlocks } from '@utils/animations';
 const welcomeListBtn = data.welcomeListBtn();
 
 onMounted(() => {
-  animateBlocks('.welcome__content > *, .about > *, .about__content > *', 0.2);
+    animateBlocks('.welcome__content > *, .about > *, .about__content > *', 0.2);
 });
 </script>
 <template>
     <section class="welcome section">
+        <div class="welcome__map"></div>
+        <MapComponent />
         <div class="welcome__content">
             <h1 class="welcome__title font-h1">
               <IconLogo class="welcome__title-icon" filled /> map
@@ -67,7 +69,21 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
-    gap: 30px
+    gap: 10px
+    overflow: hidden
+    
+    #map
+        border: 10px solid $white
+        position: absolute
+        height: 100%
+        width: 100%
+
+.welcome__map
+    z-index: 1
+    position: absolute
+    height: 100%
+    width: 100%
+    background: #ffffff80
 
 .welcome__title-icon
     width: 100px
@@ -75,6 +91,11 @@ onMounted(() => {
     transform: translateX(10%)
 
 .welcome__content
+    border-radius: $radius
+    background: $white
+    padding: 20px
+    width: 70%
+    z-index: 2
     display: flex
     flex-direction: column
     align-items: center
@@ -99,6 +120,40 @@ onMounted(() => {
 
 .welcome__btn
     background: $yellow !important
+
+.welcome__placemarks
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+    background: #ffffff80
+
+.placemark
+    position: absolute
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    @include transition
+
+.placemark__img
+    border-radius: 20px
+    width: 100%
+    object-fit: cover
+    height: 100%
+
+.placemark__message
+    position: absolute
+    transition: all 0.3s
+    background: $white
+    transform: translateY(10px)
+    color: $black
+    pointer-events: none
+    white-space: nowrap
+    padding: 6px 10px
+    border-radius: 6px
+    text-align: center
+    z-index: -1
 
 .about 
   display: flex
@@ -137,6 +192,9 @@ onMounted(() => {
 @include hover
     .welcome__btn:hover
         background: $light-grey !important
+
+    .placemark:hover
+        transform: scale(1.1)
 
 @include mobile
     .welcome__title-icon

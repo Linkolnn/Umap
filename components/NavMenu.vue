@@ -126,7 +126,7 @@ const toggleDropdown = () => {
   align-items: center
   gap: 10px
   min-width: 200px
-  z-index: 1
+  z-index: 10
   padding: 20px 0px
 
 .dropdown-header
