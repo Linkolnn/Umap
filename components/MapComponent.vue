@@ -135,7 +135,10 @@ const deletePlacemark = () => {
   saveUserPlacemarks(placemarkData.value);
   clusterer.removeAll();
   placemarkData.value.forEach(addPlacemark);
-  showForm.value = false;
+  hideElement('.form-container');
+  setTimeout(() => {
+    showForm.value = false;
+  }, 500);
 };
 
 const savePlacemark = async () => {
@@ -154,7 +157,10 @@ const savePlacemark = async () => {
   await saveUserPlacemarks(placemarkData.value);
   clusterer.removeAll();
   placemarkData.value.forEach(addPlacemark);
-  showForm.value = false;
+  hideElement('.form-container');
+  setTimeout(() => {
+    showForm.value = false;
+  }, 500);
 };
 
 const handleFileUpload = async (event) => {
@@ -198,10 +204,12 @@ onMounted(() => {
 
 watch(showForm, (newVal) => {
   if (newVal) {
+    document.body.classList.add('no-scroll');
     nextTick(() => {
       animateFormOverlay('.form-overlay');
     });
   } else {
+    document.body.classList.remove('no-scroll');
     hideElement('.form-overlay');
   }
 });
@@ -266,6 +274,13 @@ watch(showForm, (newVal) => {
 #map 
   width: 100%
   height: 90vh
+  overflow: hidden
+
+  .ymaps-2-1-79-map
+    border-radius: $radius
+
+  .ymaps-2-1-79-inner-panes
+    border-radius: $radius
 
 .placemark
   transform: translate(-50%,-50%)
@@ -308,6 +323,7 @@ watch(showForm, (newVal) => {
   display: flex
   justify-content: center
   align-items: center
+  overflow: hidden
 
 .form-container
   scrollbar-width: none

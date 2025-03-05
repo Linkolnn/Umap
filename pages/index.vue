@@ -35,21 +35,21 @@ onMounted(() => {
             <h1 class="about__title font-h1">
                 <IconLogo class="about__title-icon" filled /> map
             </h1>
-            <p class="font-text_extra-large">
+            <p class="about__text font-text_extra-large" lang="ru">
                 Umap сочетает в себе возможности интерактивных карт Яндекса с расширенным функционалом пользовательских меток и безопасной системой управления пользователями.
             </p>
             <h4 class="font-h4">Создание пользовательских меток (placeMark):</h4>
-            <p class="font-medium">
+            <p class="about__text font-medium" lang="ru">
                 1. Пользователи могут добавлять на карту собственные метки с кастомным дизайном и содержимым.
             </p>
-            <p class="font-medium">
+            <p class="about__text font-medium" lang="ru">
                 2. Для создания кастомных меток используется параметр iconLayout, позволяющий задать HTML-шаблон для отображения метки.
             </p>
             <h4 class="font-h4">Регистрация и авторизация пользователей:</h4>
-            <p class="font-medium">
+            <p class="about__text font-medium" lang="ru">
                 1. Система предоставляет функционал регистрации новых пользователей и авторизации существующих.
             </p>
-            <p class="font-medium">
+            <p class="about__text font-medium" lang="ru">
                 2. Данные пользователей, такие как токены аутентификации, сохраняются в куки-файлах для обеспечения сессий.
             </p>
         </div>
@@ -109,6 +109,8 @@ onMounted(() => {
     display: flex
     flex-direction: column
     gap: 10px
+    word-wrap: break-word
+    hyphens: auto
 
     .font-h4
         margin-top: 10px
@@ -126,8 +128,9 @@ onMounted(() => {
     transform: translateX(10%)
 
 .about__text
-    color: $grey
-    width: 80%
+    word-wrap: break-word
+    hyphens: auto
+
 
 
 @include mobile
@@ -156,6 +159,7 @@ onMounted(() => {
         width: 60px
 
     .about__text
-
+        word-wrap: break-word
+        hyphens: auto
 
 </style>
