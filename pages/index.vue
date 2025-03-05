@@ -110,7 +110,6 @@ onMounted(() => {
 
 .welcome__text
     color: $grey
-    width: 80%
     text-align: center
 
 .welcome__btn-block

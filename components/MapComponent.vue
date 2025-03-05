@@ -62,6 +62,36 @@ const initializeMap = () => {
     showForm.value = true;
   });
 
+  const ButtonLayout = ymaps.templateLayoutFactory.createClass(
+      "<div class='map__delete-btn btn'>" +
+      "{{ data.content }}" +
+      "</div>"
+  );
+
+  const customButton = new ymaps.control.Button({
+      data: {
+          content: " X "
+      },
+      options: {
+          layout: ButtonLayout,
+          float: 'none', 
+            position: {
+                top: 60, 
+                left: 10 
+            }
+      }
+  });
+
+  customButton.events.add('click', async() => {
+    const confirmed = await confirmDelete('Вы точно хотите удалить все метки?');
+    if (!confirmed) return;
+    
+    placemarkData.value = [];
+    saveUserPlacemarks(placemarkData.value);
+    clusterer.removeAll();
+  });
+  map.controls.add(customButton);
+
   const searchControl = map.controls.get('searchControl');
   searchControl.options.set('noSuggestPanel', true);
 
@@ -128,7 +158,20 @@ const addPlacemark = (placemark) => {
   clusterer.add(ymPlacemark);
 };
 
-const deletePlacemark = () => {
+const confirmDelete = async (message) => {
+  return new Promise((resolve) => {
+    if (confirm(message)) {
+      resolve(true);
+    } else {
+      resolve(false);
+    }
+  });
+};
+
+const deletePlacemark = async () => {
+  const confirmed = await confirmDelete('Вы точно хотите удалить эту метку?');
+  if (!confirmed) return;
+
   const id = formData.value.id;
   placemarkData.value = placemarkData.value.filter(p => p.id !== id);
   deleteImage(id);
@@ -282,6 +325,12 @@ watch(showForm, (newVal) => {
   .ymaps-2-1-79-inner-panes
     border-radius: $radius
 
+.map__delete-btn
+  background: $red !important
+  color: $white !important
+  font-size: 14px !important
+  padding: 6px 10px !important
+
 .placemark
   transform: translate(-50%,-50%)
   position: relative
@@ -407,7 +456,6 @@ watch(showForm, (newVal) => {
 @include hover 
   .form-container__file-upload:hover
     background: $light-grey !important 
-
 
 @include mobile
   #map
