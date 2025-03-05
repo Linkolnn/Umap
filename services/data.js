@@ -22,17 +22,28 @@ const data = {
 
         return [...baseItems, ...(additionalItems[menuType] || [])];
     },
-    welcomeListBtn() {
-        return [
-            {
-                url: "/register",
-                text: "Начать"
-            },
-            {
-                url: "/#more",
-                text: "О Umap"
-            },
-        ];
+    welcomeListBtn(isAuth = false) {
+        return isAuth
+            ? [
+                {
+                    url: "/profile",
+                    text: "Начать"
+                },
+                {
+                    url: "/#more",
+                    text: "О Umap"
+                }
+              ]
+            : [
+                {
+                    url: "/register",
+                    text: "Начать"
+                },
+                {
+                    url: "/#more",
+                    text: "О Umap"
+                }
+              ];
     },
 }
 

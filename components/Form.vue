@@ -50,7 +50,7 @@ onMounted(() => {
             <input class="inp form__input" v-model="confirmPassword" type="password" required />
         </template>
             <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-            <button class="btn font-button form__input" type="submit">
+            <button class="btn font-button form__btn" type="submit">
                 {{ type === 'register' ? 'Зарегистрироваться' : 'Войти' }}
             </button>
     </form>
@@ -73,12 +73,21 @@ onMounted(() => {
   border-radius: $radius
   color: $red
   padding: 5px
-  transition: 0.5s ease
+  @include transition
+  
+.form__btn
+  background: $yellow !important
 
+@include hover
+  .form__btn:hover
+      background: $light-grey !important
 
 @include mobile
   .form
     max-width: 350px
     width: 100%
+
+  .form__btn:active
+    background: $light-grey !important
 
 </style>

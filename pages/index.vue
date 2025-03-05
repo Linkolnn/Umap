@@ -1,8 +1,11 @@
 <script setup>
 import data from '@services/data';
 import { animateBlocks } from '@utils/animations';
+import { useAuth } from '@composables/useAuth';
 
-const welcomeListBtn = data.welcomeListBtn();
+const { currentUser } = useAuth();
+const isAuth = !!currentUser.value;
+const welcomeListBtn = data.welcomeListBtn(isAuth);
 
 onMounted(() => {
     animateBlocks('.welcome__content > *, .about > *, .about__content > *', 0.2);
@@ -121,40 +124,6 @@ onMounted(() => {
 .welcome__btn
     background: $yellow !important
 
-.welcome__placemarks
-    position: absolute
-    width: 100%
-    height: 100%
-    overflow: hidden
-    background: #ffffff80
-
-.placemark
-    position: absolute
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    @include transition
-
-.placemark__img
-    border-radius: 20px
-    width: 100%
-    object-fit: cover
-    height: 100%
-
-.placemark__message
-    position: absolute
-    transition: all 0.3s
-    background: $white
-    transform: translateY(10px)
-    color: $black
-    pointer-events: none
-    white-space: nowrap
-    padding: 6px 10px
-    border-radius: 6px
-    text-align: center
-    z-index: -1
-
 .about 
   display: flex
   flex-direction: row
@@ -193,8 +162,6 @@ onMounted(() => {
     .welcome__btn:hover
         background: $light-grey !important
 
-    .placemark:hover
-        transform: scale(1.1)
 
 @include mobile
     .welcome__title-icon
@@ -210,6 +177,9 @@ onMounted(() => {
     .welcome__btn-block
         .font-button
             font-size: 16px !important
+
+    .welcome__btn:active
+        background: $light-grey !important
 
     .about 
         flex-direction: column
