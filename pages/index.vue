@@ -67,7 +67,7 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
-    gap: 10px
+    gap: 30px
 
 .welcome__title-icon
     width: 100px
@@ -96,6 +96,9 @@ onMounted(() => {
     
     .font-button
         font-size: 24px !important
+
+.welcome__btn
+    background: $yellow !important
 
 .about 
   display: flex
@@ -131,7 +134,9 @@ onMounted(() => {
     word-wrap: break-word
     hyphens: auto
 
-
+@include hover
+    .welcome__btn:hover
+        background: $light-grey !important
 
 @include mobile
     .welcome__title-icon
