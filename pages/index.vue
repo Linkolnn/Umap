@@ -167,6 +167,9 @@ onMounted(() => {
     .welcome__title-icon
         width: 60px
 
+    .welcome__content
+        width: 90%
+
     .welcome__text
         span
             display: none
