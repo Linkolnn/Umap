@@ -14,6 +14,9 @@ $radius: 10px
     
 body
     background: $light-grey
+
+body.no-scroll
+    overflow: hidden
     
 .nuxt-link 
     text-decoration: none
@@ -40,6 +43,10 @@ body
     min-height: 100px
     max-height: 150px
 
+.about__text
+    word-wrap: break-word
+    hyphens: auto
+
 @include hover 
     .btn:hover 
         background: $yellow
@@ -50,4 +57,4 @@ body
         background: $yellow
         @include transition
 
-    
+
